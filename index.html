@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Llaveros · Colección</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="header-logo">
+    <span class="logo-icon">✦</span>
+    <span class="logo-text">Llaveros</span>
+  </a>
+  <button class="menu-toggle" id="menuToggle">☰</button>
+  <nav class="nav" id="navMenu">
+    <a href="index.html">Inicio</a>
+    <a href="personajes.html">Personajes</a>
+    <a href="comida.html">Comida</a>
+    <a href="animales.html">Animales</a>
+    <a href="personalizado.html">Personalizado</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h2>Llaveros <span class="destacar">únicos</span></h2>
+  <p>Diseños divertidos, coloridos y hechos con amor.<br />Encuentra el llavero perfecto para ti o para regalar.</p>
+</section>
+
+<!-- CATEGORÍAS -->
+<section class="categorias-section">
+  <div class="categorias-header">
+    <span class="etiqueta">Categorías</span>
+    <h2>Explora tu estilo</h2>
+    <p>Personajes · Comida · Animales · Personalizado</p>
+  </div>
+
+  <div class="categorias-grid">
+    <a href="personajes.html" class="card-categoria">
+      <span class="icono-grande">Personajes</span>
+      <span class="badge">Nuevo</span>
+    </a>
+    <a href="personalizado.html" class="card-categoria">
+      <span class="icono-grande">Personalizado</span>
+      <span class="badge">Destacado</span>
+    </a>
+    <a href="comida.html" class="card-categoria">
+      <span class="icono-grande">Comida</span>
+    </a>
+    <a href="animales.html" class="card-categoria">
+      <span class="icono-grande">Animales</span>
+    </a>
+  </div>
+
+  <!-- PRODUCTOS DESTACADOS -->
+  <h2 style="font-size:2rem; margin: 2.5rem 0 0.5rem; background:linear-gradient(135deg,var(--rosa),var(--morado)); -webkit-background-clip:text; background-clip:text; color:transparent;">
+    Destacados
+  </h2>
+  <div class="productos-grid">
+     <div class="producto">
+      <img src="ositos.jpg" alt="Oso" />
+      <div class="info">
+        <h3>Oso</h3>
+        <div class="precio">$10.000</div>
+        <a href="producto-detalle.html?producto=oso" class="btn">Ver Detalles</a>
+      </div>
+    </div>
+    <div class="producto">
+      <img src="spiderm.jpg" alt="spider" />
+      <div class="info">
+        <h3>SpiderMan</h3>
+        <div class="precio">$10.000</div>
+        <a href="producto-detalle.html?producto=spider" class="btn">Ver Detalles</a>
+      </div>
+    </div>
+   <div class="producto">
+      <img src="pollos.jpg" alt="gallinas" />
+      <div class="info">
+        <h3>Gallina pin</h3>
+        <div class="precio">$10.000</div>
+        <a href="producto-detalle.html?producto=gallinas" class="btn">Ver Detalles</a>
+      </div>
+    </div>
+      <div class="producto">
+      <img src="fr.jpg" alt="frutas" />
+      <div class="info">
+        <h3>Frutas</h3>
+        <div class="precio">$10.000</div>
+        <a href="producto-detalle.html?producto=frutas" class="btn">Ver Detalles</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>✦ Llaveros</h3>
+      <p>Diseños divertidos y coloridos, hechos a mano con mucho cariño.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <p>WhatsApp: +57 324 5453480</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Llaveros - Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/573245453480" class="whatsapp" target="_blank">💬</a>
+
+<script src="script.js"></script>
+</body>
+</html>

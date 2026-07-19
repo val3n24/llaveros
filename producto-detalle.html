@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle del Producto · Llaveros</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="header-logo">
+    <span class="logo-icon">✦</span>
+    <span class="logo-text">Llaveros</span>
+  </a>
+  <button class="menu-toggle" id="menuToggle">☰</button>
+  <nav class="nav" id="navMenu">
+    <a href="index.html">Inicio</a>
+    <a href="personajes.html">Personajes</a>
+    <a href="comida.html">Comida</a>
+    <a href="animales.html">Animales</a>
+    <a href="personalizado.html">Personalizado</a>
+  </nav>
+</header>
+
+<!-- DETALLE DEL PRODUCTO -->
+<section class="detalle-container">
+  <a href="javascript:history.back()" class="volver">← Volver</a>
+
+  <div class="detalle-producto">
+    <!-- IMAGEN -->
+    <div class="detalle-imagen">
+      <div class="imagen-principal-container">
+        <img src="img/eli.png" alt="Producto" id="producto-imagen" />
+      </div>
+      <div class="miniaturas-horizontales" id="miniaturas-container">
+        <!-- Miniaturas generadas por JS -->
+      </div>
+    </div>
+
+    <!-- INFORMACIÓN -->
+    <div class="detalle-info">
+      <h1 id="producto-nombre">Llavero</h1>
+      
+      <div class="precio" id="producto-precio">$0</div>
+
+      <!-- SELECTOR DE COLOR (obligatorio para el cliente) -->
+      <div class="selector-color">
+        <h3>Elige el color: <span class="obligatorio">*</span></h3>
+        <div class="colores" id="colores-container">
+          <!-- Colores generados por JS -->
+        </div>
+        <p class="seleccionado-texto" id="color-seleccionado-texto">Color seleccionado: <span>Ninguno</span></p>
+      </div>
+
+      <!-- CANTIDAD -->
+      <div class="cantidad-selector">
+        <h3>Cantidad:</h3>
+        <div class="cantidad-control">
+          <button class="cantidad-btn" onclick="cambiarCantidad(-1)">−</button>
+          <input type="number" id="cantidad" value="1" min="1" max="10" readonly />
+          <button class="cantidad-btn" onclick="cambiarCantidad(1)">+</button>
+        </div>
+      </div>
+
+      <!-- TOTAL -->
+      <div class="total-precio">
+        <h3>Total:</h3>
+        <div class="total-monto" id="total-monto">$0</div>
+      </div>
+
+      <!-- NOTA ADICIONAL (opcional) -->
+      <div class="nota-adicional">
+        <h3>Nota adicional <span style="color:#999; font-weight:400; font-size:0.85rem;">(opcional)</span></h3>
+        <textarea id="nota-adicional" placeholder="Ej: ¿Tienen este diseño en otro color? / etc."></textarea>
+        <span class="ayuda">💡 Puedes escribir aquí cualquier indicación especial para tu pedido.</span>
+      </div>
+
+      <!-- BOTÓN COMPRAR -->
+      <button class="btn-comprar" onclick="enviarWhatsApp()">🛒 Comprar Ahora</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>✦ Llaveros</h3>
+      <p>Diseños divertidos y coloridos, hechos a mano con mucho cariño.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <p>WhatsApp: +57 324 5453480</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Llaveros - Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/573245453480" class="whatsapp" target="_blank">💬</a>
+
+<script>
+// ============================================================
+// MAPA DE COLORES
+// ============================================================
+const colorMap = {
+  'Rosa': '#ff6b9d',
+  'Morado': '#a66cff',
+  'Celeste': '#4d96ff',
+  'Amarillo': '#ffd93d',
+  'Rojo': '#e74c3c',
+  'Manzana roja': '#e74c3c',
+  'Azul': '#2e86de',
+  'Azul Oscuro': '#163380',
+  'Negro': '#2d2d2d',
+  'Crema': '#C7B7A5',
+  'Blanco': '#f5f5f5',
+  'Gris': '#808080',
+  'Plateado': '#c0c0c0',
+  'Verde': '#6bcb77',
+   'Manzana verde': '#6bcb77',
+  'Naranja': '#ff8a5c',
+  'Lila': '#b39ddb',
+  'Dorado': '#ffd700',
+  'Marrón': '#8d6e63',
+  'Kiwi': '#8d6e63',
+  'Beige': '#f5e6d3',
+  'Chocolate': '#6d4c41'
+};
+
+// ============================================================
+// DATOS DE PRODUCTOS - LLAVEROS
+// ============================================================
+const productosData = {
+  // ==========================================================
+  // PERSONAJES
+  // ==========================================================
+   'pou': {
+    nombre: 'Pou',
+    precio: 10000,
+    colores: [], 
+    imagenes: [
+        'pou.jpg'   
+  ]
+  },
+    'spider': {
+    nombre: 'SpiderMan',
+    precio: 10000,
+    colores: [], 
+    imagenes: [
+        'spiderm.jpg'
+  ]
+  },
+    'keropi': {
+    nombre: 'Keropi',
+    precio: 10000,
+    colores: [], 
+    imagenes: [
+        'img/kero.jpg'
+    ]  
+  },
+    'jorge': {
+    nombre: 'Jorge',
+    precio: 10000,
+    colores: [''], 
+    imagenes: [
+        'jorge.jpg'
+  ]
+  },
+     'kitty': {
+    nombre: 'Hello Kitty',
+    precio: 10000,
+    colores: [], 
+    imagenes: [
+        'hll.jpg'
+      
+  ]
+  },
+ 
+     'piggy': {
+    nombre: 'Piggy',
+    precio: 10000,
+    colores: [], 
+    imagenes: [
+        'cer.jpg'
+  ]
+  },
+     'calcifer': {
+    nombre: 'Calcifer',
+    precio: 10000,
+    colores: [], 
+    imagenes: [
+        'cal (1).jpg'
+  ]
+  },
+
+  // ==========================================================
+  // COMIDA 
+  // ==========================================================
+   'frutas': {
+    nombre: 'Frutas',
+    precio: 10000,
+    colores: ['Kiwi', 'Manzana roja', 'Manzana verde', 'Naranja'], 
+    imagenes: [
+        'kiw.jpg',
+        'mar.jpg',
+        'mav.jpg',
+        'nar.jpg'
+  ]
+  },
+ 
+
+  // ==========================================================
+  // ANIMALES
+  // ==========================================================
+  'gallinas': {
+    nombre: 'Gallina pin',
+    precio: 10000,
+    colores: ['Blanco', 'Crema', 'Gris', 'Marrón'],
+    imagenes: [
+      'pollref.jpg',
+      'pollcrem.jpg',
+      'pollgris.jpg',
+      'pollm.jpg',
+  ]
+  },
+  'pinguino': {
+    nombre: 'Pingüino',
+    precio: 10000,
+    colores: [],
+    imagenes: [
+      'ping.jpg'
+  ]
+  },
+   'oso': {
+    nombre: 'Oso',
+    precio: 10000,
+    colores: ['Azul', 'Naranja', 'Azul Oscuro', 'Verde'],
+    imagenes: [
+      'o.jpg',
+      'o2.jpg',
+      'o3.jpg',
+      'o4.jpg',
+  ]
+  },
+   'oveja': {
+    nombre: 'Oveja',
+    precio: 10000,
+    colores: [],
+    imagenes: [
+      'ov.jpg'
+  ]
+  },
+   'conejo': {
+    nombre: 'Conejo',
+    precio: 10000,
+    colores: [],
+    imagenes: [
+      'conejito.jpg'
+  ]
+  },
+  
+};
+
+// ============================================================
+// LÓGICA DEL DETALLE
+// ============================================================
+let productoActual = null;
+let colorSeleccionado = '';
+let cantidad = 1;
+
+function cargarProducto() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const productoKey = urlParams.get('producto');
+
+  if (!productoKey || !productosData[productoKey]) {
+    document.getElementById('producto-nombre').textContent = 'Producto no encontrado';
+    document.getElementById('producto-precio').textContent = '$0';
+    return;
+  }
+
+  const data = productosData[productoKey];
+  productoActual = { ...data, key: productoKey };
+
+  document.getElementById('producto-nombre').textContent = data.nombre;
+  document.getElementById('producto-precio').textContent = '$' + data.precio.toLocaleString();
+
+  // Cargar colores (si hay)
+  if (data.colores && data.colores.length > 0) {
+    cargarColores(data.colores);
+    // Seleccionar el primer color por defecto
+    const primerBoton = document.querySelector('.color-btn');
+    if (primerBoton) {
+      primerBoton.click();
+    }
+  } else {
+    // Ocultar el selector de color si no hay colores
+    document.querySelector('.selector-color').style.display = 'none';
+    colorSeleccionado = 'Sin color';
+  }
+
+  // Cargar imágenes
+  if (data.imagenes && data.imagenes.length > 0) {
+    document.getElementById('producto-imagen').src = data.imagenes[0];
+    cargarMiniaturas(data.imagenes);
+  }
+
+  actualizarTotal();
+}
+
+function cargarColores(colores) {
+  const container = document.getElementById('colores-container');
+  container.innerHTML = '';
+
+  colores.forEach(color => {
+    const btn = document.createElement('button');
+    btn.className = 'color-btn';
+    btn.setAttribute('data-color', color);
+
+    const muestra = document.createElement('span');
+    muestra.className = 'color-muestra';
+    const colorHex = colorMap[color] || '#cccccc';
+    muestra.style.background = colorHex;
+    if (color === 'Blanco') muestra.style.border = '1px solid #ddd';
+
+    const text = document.createTextNode(' ' + color);
+
+    btn.appendChild(muestra);
+    btn.appendChild(text);
+    btn.onclick = () => seleccionarColor(color, btn);
+
+    container.appendChild(btn);
+  });
+}
+
+function seleccionarColor(color, boton) {
+  colorSeleccionado = color;
+
+  document.getElementById('color-seleccionado-texto').innerHTML = 'Color seleccionado: <span style="color: ' + (colorMap[color] || '#333') + '; font-weight: bold;">' + color + '</span>';
+
+  document.querySelectorAll('.color-btn').forEach(btn => btn.classList.remove('active'));
+  boton.classList.add('active');
+
+  // Si el producto tiene imágenes específicas por color, podrías cambiarlas aquí
+}
+
+function cargarMiniaturas(imagenes) {
+  const container = document.getElementById('miniaturas-container');
+  container.innerHTML = '';
+
+  imagenes.forEach((img, index) => {
+    const miniatura = document.createElement('div');
+    miniatura.className = 'miniatura-horizontal';
+    if (index === 0) miniatura.classList.add('activa');
+
+    const imgElement = document.createElement('img');
+    imgElement.src = img;
+    imgElement.alt = 'Vista ' + (index + 1);
+
+    miniatura.appendChild(imgElement);
+    miniatura.onclick = () => cambiarImagenPrincipal(img, miniatura);
+    container.appendChild(miniatura);
+  });
+}
+
+function cambiarImagenPrincipal(nuevaImagen, miniaturaSeleccionada) {
+  document.getElementById('producto-imagen').src = nuevaImagen;
+  document.querySelectorAll('.miniatura-horizontal').forEach(m => m.classList.remove('activa'));
+  miniaturaSeleccionada.classList.add('activa');
+}
+
+function cambiarCantidad(delta) {
+  let nuevaCantidad = cantidad + delta;
+  if (nuevaCantidad >= 1 && nuevaCantidad <= 10) {
+    cantidad = nuevaCantidad;
+    document.getElementById('cantidad').value = cantidad;
+    actualizarTotal();
+  }
+}
+
+function actualizarTotal() {
+  if (productoActual) {
+    const total = productoActual.precio * cantidad;
+    document.getElementById('total-monto').textContent = '$' + total.toLocaleString();
+  }
+}
+
+function enviarWhatsApp() {
+  if (!productoActual) return;
+
+  // Si el producto tiene colores y no se ha seleccionado ninguno
+  if (productoActual.colores && productoActual.colores.length > 0 && !colorSeleccionado) {
+    alert('⚠️ Por favor, selecciona un color para el producto.');
+    return;
+  }
+
+  const total = productoActual.precio * cantidad;
+  const nota = document.getElementById('nota-adicional').value.trim();
+
+  let mensaje =
+    'Hola, me interesa comprar:\n\n' +
+    '📌 Producto: ' + productoActual.nombre + '\n';
+
+  if (colorSeleccionado && colorSeleccionado !== 'Sin color') {
+    mensaje += '🎨 Color: ' + colorSeleccionado + '\n';
+  }
+
+  mensaje +=
+    '📦 Cantidad: ' + cantidad + '\n' +
+    '💰 Precio unitario: $' + productoActual.precio.toLocaleString() + '\n' +
+    '💵 Total: $' + total.toLocaleString();
+
+  if (nota) {
+    mensaje += '\n\n📝 Nota: ' + nota;
+  }
+
+  mensaje += '\n\n¿Podrían darme más información sobre disponibilidad y formas de pago?';
+
+  const urlWhatsApp = 'https://wa.me/573245453480?text=' + encodeURIComponent(mensaje);
+  window.open(urlWhatsApp, '_blank');
+}
+
+// Cargar al inicio
+document.addEventListener('DOMContentLoaded', cargarProducto);
+</script>
+
+</body>
+</html>
